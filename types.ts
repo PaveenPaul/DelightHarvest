@@ -25,8 +25,10 @@ export interface Testimonial {
   text: string;
 }
 
+export type GalleryMediaType = 'image' | 'video';
 export interface GalleryItem {
   id: string;
   url: string;
   alt: string;
+  type: GalleryMediaType;
 }

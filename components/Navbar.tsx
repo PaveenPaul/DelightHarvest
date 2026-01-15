@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.webp';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +19,14 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center group">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
+              <img
+                src={logo}
+                alt="Delight Coffee and Spices Logo"
+                className="h-14 w-14 object-contain"
+              />
               <span className="text-earth-brown font-serif text-2xl font-bold tracking-tight">
-                Delight<span className="text-plantation-green">.</span>
+                Delight <span className="text-plantation-green">Harvests</span>
               </span>
             </Link>
           </div>

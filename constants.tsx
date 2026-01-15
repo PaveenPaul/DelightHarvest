@@ -1,7 +1,7 @@
 
 import { Product, Category, Testimonial, GalleryItem } from './types';
 
-export const BUSINESS_PHONE = "+911234567890"; // Example WhatsApp number
+export const BUSINESS_PHONE = "+917676197913"; 
 export const BUSINESS_EMAIL = "hello@delightcoffee.com";
 
 export const PRODUCTS: Product[] = [
@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
     name: 'Arabica "AA" Grade Beans',
     category: Category.COFFEE,
     description: 'Rich aroma, smooth flavour — perfect for a clean, elegant cup.',
-    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451435/arabica-aa_q2e9lu.png?q=80&w=800&auto=format&fit=crop',
     hasRoastOptions: true
   },
   {
@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
     name: 'Arabica "Peaberry" Beans',
     category: Category.COFFEE,
     description: 'Naturally bold and vibrant, known for their intense flavour profile.',
-    image: 'https://images.unsplash.com/photo-1580915411954-282cb1b0d780?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451434/Peaberry_ttuuw3.png?q=80&w=800&auto=format&fit=crop',
     hasRoastOptions: true
   },
   {
@@ -26,7 +26,7 @@ export const PRODUCTS: Product[] = [
     name: 'Robusta "Bulk" Beans',
     category: Category.COFFEE,
     description: 'Strong, full-bodied beans ideal for a powerful, earthy brew.',
-    image: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451435/Bulk_h6eni3.png?q=80&w=800&auto=format&fit=crop',
     hasRoastOptions: true
   },
   {
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     name: 'Signature Blends (Arabica + Robusta)',
     category: Category.BLENDS,
     description: 'Balanced blends crafted for versatility and depth.',
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451432/Signature_ipknfz.png?q=80&w=800&auto=format&fit=crop',
     hasRoastOptions: true,
     hasRatioOptions: true
   },
@@ -43,21 +43,21 @@ export const PRODUCTS: Product[] = [
     name: 'Whole Black Pepper',
     category: Category.SPICES,
     description: 'Single-estate, aromatic and freshly packed.',
-    image: 'https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451437/blackpeppers_ia5bab.png?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'cloves',
+    id: 'white-pepper',
     name: 'Premium Whole Cloves',
     category: Category.SPICES,
     description: 'Intensely aromatic and warm, these hand-selected cloves add depth to any dish.',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451433/whiteppers_m9apnm.png?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'cardamom',
     name: 'Green Cardamom Pods',
     category: Category.SPICES,
     description: 'The "Queen of Spices", our green cardamom is handpicked for its vibrant color and floral aroma.',
-    image: 'https://images.unsplash.com/photo-1599332159048-8426084476a8?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/dpotv2nen/image/upload/v1768451437/cardamoms_qmestx.png?q=80&w=800&auto=format&fit=crop'
   }
 ];
 
@@ -83,10 +83,47 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: 'g1', url: 'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800', alt: 'Fresh coffee cherries' },
-  { id: 'g2', url: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800', alt: 'Coffee brewing' },
-  { id: 'g3', url: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800', alt: 'Roasted beans' },
-  { id: 'g4', url: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800', alt: 'Coffee grind' },
-  { id: 'g5', url: 'https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=800', alt: 'Whole pepper' },
-  { id: 'g6', url: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800', alt: 'Packaging aesthetics' },
+  {
+    id: 'g1',
+    url: 'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800',
+    alt: 'Fresh coffee cherries',
+    type: 'image'
+  },
+  {
+    id: 'g2',
+    url: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800',
+    alt: 'Coffee brewing',
+    type: 'image'
+  },
+  {
+    id: 'g3',
+    url: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800',
+    alt: 'Roasted beans',
+    type: 'image'
+  },
+  {
+    id: 'g4',
+    url: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800',
+    alt: 'Coffee grind',
+    type: 'image'
+  },
+  {
+    id: 'g5',
+    url: 'https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=800',
+    alt: 'Whole pepper',
+    type: 'image'
+  },
+  {
+    id: 'g6',
+    url: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800',
+    alt: 'Packaging aesthetics',
+    type: 'image'
+  },
+  {
+    id: 'g7',
+    url: 'https://res.cloudinary.com/dpotv2nen/video/upload/v1768453554/WhatsApp_Video_2026-01-14_at_8.39.52_PM_nwb7fg.mp4',
+    alt: 'Harvest video',
+    type: 'video'
+  }
 ];
+
