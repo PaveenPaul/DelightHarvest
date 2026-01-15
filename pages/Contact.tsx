@@ -1,18 +1,19 @@
-
 import React, { useState } from 'react';
-import { BUSINESS_EMAIL, BUSINESS_PHONE } from '../constants';
+import { BUSINESS_PHONE } from '../constants';
 
 const Contact: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate email sending
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: '', email: '', message: '' });
+    
+    // Construct the WhatsApp message
+    const text = `Hello! My name is ${formData.name}. %0A` +
+                 `Email: ${formData.email} %0A` +
+                 `Enquiry: ${formData.message}`;
+    
+    // Open WhatsApp URL
+    window.open(`https://wa.me/${BUSINESS_PHONE}?text=${text}`, '_blank');
   };
 
   return (
@@ -21,7 +22,7 @@ const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-bold font-serif mb-4">Get in Touch</h1>
           <p className="text-gray-300 font-light max-w-2xl mx-auto">
-            Have questions about our blends? Or need help choosing the right roast? We're just a message away.
+            Have questions about our blends? We're just a WhatsApp message away.
           </p>
         </div>
       </div>
@@ -32,54 +33,47 @@ const Contact: React.FC = () => {
           <div className="bg-white p-8 md:p-12 rounded-3xl border border-warm-beige shadow-sm">
             <h2 className="text-3xl font-serif font-bold mb-8">Send an Enquiry</h2>
             
-            {submitted ? (
-              <div className="bg-plantation-green/10 text-plantation-green p-6 rounded-xl animate-in fade-in zoom-in">
-                <h3 className="font-bold mb-2">Thank you!</h3>
-                <p>Your message has been received. We will get back to you at {BUSINESS_EMAIL} shortly.</p>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                <input 
+                  type="text" 
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
-                  <input 
-                    type="text" 
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                  <input 
-                    type="email" 
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">How can we help?</label>
-                  <textarea 
-                    rows={4} 
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    placeholder="Tell us what you're looking for..."
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all resize-none"
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full bg-earth-brown hover:bg-black text-white py-4 rounded-lg font-bold transition-all shadow-md active:scale-[0.98]"
-                >
-                  Submit Enquiry
-                </button>
-              </form>
-            )}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                <input 
+                  type="email" 
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">How can we help?</label>
+                <textarea 
+                  rows={4} 
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  placeholder="Tell us what you're looking for..."
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-plantation-green focus:ring-2 focus:ring-plantation-green/20 outline-none transition-all resize-none"
+                ></textarea>
+              </div>
+              <button 
+                type="submit"
+                className="w-full bg-plantation-green hover:bg-green-800 text-white py-4 rounded-lg font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2"
+              >
+                Continue to WhatsApp
+              </button>
+            </form>
           </div>
 
           {/* Contact Info & WhatsApp */}
@@ -87,7 +81,7 @@ const Contact: React.FC = () => {
             <div>
               <h2 className="text-3xl font-serif font-bold mb-6">Direct Contact</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Prefer a faster response? Our WhatsApp support is available for quick queries and orders during business hours.
+                Our WhatsApp support is available for quick queries and orders during business hours.
               </p>
               
               <button 
@@ -106,15 +100,11 @@ const Contact: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-warm-beige">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-plantation-green mb-4">Email</h3>
-                <p className="text-gray-600">{BUSINESS_EMAIL}</p>
-              </div>
-              <div>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-plantation-green mb-4">Hours</h3>
                 <p className="text-gray-600">Mon – Sat: 9am – 6pm</p>
                 <p className="text-gray-600 text-xs">Closed on Sundays</p>
               </div>
-              <div className="sm:col-span-2">
+              <div>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-plantation-green mb-4">Location</h3>
                 <p className="text-gray-600">Main Estate Office, Chikmagalur, Karnataka, India</p>
               </div>
