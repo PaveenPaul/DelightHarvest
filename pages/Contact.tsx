@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-plantation-green mb-4">Location</h3>
-                <p className="text-gray-600">Main Estate Office, Chikmagalur, Karnataka, India</p>
+                <p className="text-gray-600">Harsha Coffee Plantation, Malagalli village, Doddakundur post, Yesluru, Sakleshpura, Karnataka-573137, India</p>
               </div>
             </div>
           </div>
