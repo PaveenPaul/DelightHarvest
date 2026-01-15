@@ -38,7 +38,7 @@ const Products: React.FC = () => {
             Looking for larger quantities for your cafe or office? We offer special bulk pricing and customized blends for our business partners.
           </p>
           <button 
-             onClick={() => window.open(`https://wa.me/911234567890?text=Hi! I am interested in bulk ordering for my business.`, '_blank')}
+             onClick={() => window.open(`https://wa.me/917676197913?text=Hi! I am interested in bulk ordering for my business.`, '_blank')}
              className="text-plantation-green font-bold hover:underline"
           >
             Inquire about Bulk Pricing
